@@ -227,7 +227,7 @@ function addLitterbox() {
   }
 }
 
-var catnipCost = 100;
+var catnipCost = 150;
 var catnipCount = 0;
 
 function addCatnip() {
@@ -235,7 +235,7 @@ function addCatnip() {
     click = click - catnipCost;
     catnipCount = catnipCount + 1;
     setInterval(function () {
-      addClick(0.025);
+      addClick(0.0275);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
     catnipCost = Math.round(catnipCost * 1.12);
