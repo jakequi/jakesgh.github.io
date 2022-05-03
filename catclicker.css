@@ -15,6 +15,32 @@
   text-decoration: none;
 }
 
+.addscorebuttonegypt {
+  justify-content: center;
+  text-align: center;
+  font-family: "DotGothic16", sans-serif;
+  color: #3f2f10;
+  background-color: #fe9933;
+  border: 20px;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.addscorebuttonegypt:disabled {
+  justify-content: center;
+  text-align: center;
+  font-family: "DotGothic16", sans-serif;
+  color: #130e05;
+  background-color: #b36c25;
+  border: 20px;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: none;
+}
+
 input:disabled {
   background: #777777;
   color: #2c2b2b;
@@ -108,6 +134,15 @@ img {
 
 body {
   background-color: lightblue;
+}
+
+.centeregypt {
+  margin: auto;
+  width: 30%;
+  border: 15px solid #fefe99;
+  padding: 5px;
+  background-color: #fecc66;
+  text-align: center;
 }
 
 .center {

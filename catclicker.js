@@ -173,9 +173,13 @@ function changeImage() {
   // if (started == false) {
   //   return;
   // }
-  var image = document.getElementById("kitty");
-  image.src = "images/cat2.png";
-  setTimeout(() => (image.src = "images/cat1.png"), 300);
+  if (bastetCount == 0) {
+    var image = document.getElementById("kitty");
+    image.src = "images/cat2.png";
+    setTimeout(() => (image.src = "images/cat1.png"), 300);
+  } else {
+    return;
+  }
   randomNumber = Math.floor(Math.random() * 10 + 1);
   if (randomNumber == 7) {
     document.getElementById("mew").volume = 0.5;
@@ -211,7 +215,7 @@ function addLitterbox() {
     click = click - litterboxCost;
     litterboxCount = litterboxCount + 1;
     setInterval(function () {
-      addClick(0.015);
+      addClick(0.01);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
     litterboxCost = Math.round(litterboxCost * 1.12);
@@ -231,7 +235,7 @@ function addCatnip() {
     click = click - catnipCost;
     catnipCount = catnipCount + 1;
     setInterval(function () {
-      addClick(0.035);
+      addClick(0.025);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
     catnipCost = Math.round(catnipCost * 1.12);
@@ -242,6 +246,18 @@ function addCatnip() {
       "Catnip (" + catnipCost + ") [" + catnipCount + "]";
   }
 }
+
+const start = () => {
+  setTimeout(function () {
+    confetti.start();
+  }, 1000);
+};
+
+const stop = () => {
+  setTimeout(function () {
+    confetti.stop();
+  }, 5000);
+};
 
 var bastetCost = 500;
 var bastetCount = 0;
@@ -260,6 +276,35 @@ function addBastet() {
     document.getElementById("click").innerHTML = click.toFixed(1);
     document.getElementById("bastetButton").value =
       "Bastet (" + bastetCost + ") [" + bastetCount + "]";
+  }
+  if (bastetCount == 1) {
+    start();
+    var audio = new Audio("audio/bop.mp3");
+    audio.volume = 0.5;
+    audio.play();
+    document.body.style.backgroundColor = "#fbab4f";
+    document.getElementById("center").classList.remove("center");
+    document.getElementById("center").classList.add("centeregypt");
+    document.getElementById("furballButton").classList.remove("addscorebutton");
+    document
+      .getElementById("furballButton")
+      .classList.add("addscorebuttonegypt");
+    document
+      .getElementById("litterboxButton")
+      .classList.remove("addscorebutton");
+    document
+      .getElementById("litterboxButton")
+      .classList.add("addscorebuttonegypt");
+    document.getElementById("catnipButton").classList.remove("addscorebutton");
+    document
+      .getElementById("catnipButton")
+      .classList.add("addscorebuttonegypt");
+    document.getElementById("bastetButton").classList.remove("addscorebutton");
+    document
+      .getElementById("bastetButton")
+      .classList.add("addscorebuttonegypt");
+    var image = document.getElementById("kitty");
+    image.src = "images/cat2egypt.png";
   }
 }
 
