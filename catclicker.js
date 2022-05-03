@@ -114,6 +114,7 @@ function addClick(amount) {
       .setAttribute("disabled", "disabled");
   } else document.getElementById("furballButton").removeAttribute("disabled");
   if ((furballCount >= 10) & (catnipCount == 0)) {
+    catnipUnlocked = true;
     document.getElementById("catnipButton").value = "Catnip (50) [0]";
     document.getElementById("catnipButton").classList.add("addscorebutton");
     document.getElementById("catnipButton").classList.remove("locked");
@@ -166,14 +167,14 @@ var catnipCost = 50;
 var catnipCount = 0;
 
 function addCatnip() {
-  if (click >= catnipCost) {
+  if ((click >= catnipCost) & catnipUnlocked) {
     click = click - catnipCost;
     catnipCount = catnipCount + 1;
     setInterval(function () {
       addClick(0.01);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
-    furballCost = Math.round(furballCost * 1.15);
+    furballCost = Math.round(catnipCost * 1.15);
     pps = pps + 1;
     document.getElementById("pps").innerHTML = pps.toFixed(1);
     document.getElementById("click").innerHTML = click.toFixed(1);
