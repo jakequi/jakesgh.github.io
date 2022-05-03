@@ -23,11 +23,7 @@
     <audio id="mew" src="audio/pop.mp3" preload="auto"></audio>
 
     <p id=menufont >Press start and click the cat to raise your score!<br>
-    The further the level, the less time you have.<br>
-    Get as many clicks as you can!
     </p>
-
-
 
   
 
@@ -36,26 +32,30 @@
       <input type="button" class="buttons" id="startB" value="start" onclick="startGame();">
       <input type="button"  class="buttons"id="endB" value="end" onclick="endGame();">
     </div>
+    -->
     <div class="center">
       <h1 class="timeleft">
       Cat Clicker
-      </h1> -->
+      </h1
 
     <!--TIMER -->
-      <!-- <div class="timeleft"> Time left:
+     <!-- <div class="timeleft"> Time left:
         <span id = "countdown"> 15 seconds</span><br/>
-      </div>
-      <div class="timeleft"> Pokes:
-        <span id="score">0</span><br/>
       </div> -->
+      <div class="timeleft"> Pokes:
+        <span id="click">0</span><br/>
+      </div>
+      <div class="timeleft"> Pokes Per Second (PPS):
+        <span id="pps">0</span><br/>
+      </div>
 
     <!-- CAT PICTURE -->
       <div id='kittyaround'>
-        <img alt="cat" id='kitty' src="images/cat1.png" class="imginactive" onclick="addClick();changeImage();">
+        <img alt="cat" id='kitty' src="images/cat1.png" class="imginactive" onclick="addClick(1);changeImage();">
       </div>
-      <div class="timeleft">
+      <!-- <div class="timeleft">
         <br>Highscore: <span id="highScore">0</span></br>
-      </div>
+      </div> -->
 
 
 
@@ -81,14 +81,14 @@ id = "namein">
 Score: <input type = "text" 
 id = "scorein">
 </p>
+-->
 
-<input type = "button" 
-value = "Add score" 
- 
+<input id = furballButton type = "button" disabled
+value = "Furball (10) [0]" 
 class="addscorebutton" 
-onclick = "addToTable();">
+onclick = "addFurball();">
 </br>
-
+<!-- 
 <div id = "highscoretable"> -->
 
 
