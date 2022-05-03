@@ -174,7 +174,7 @@ function addCatnip() {
       addClick(0.01);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
-    furballCost = Math.round(catnipCost * 1.15);
+    catnipCost = Math.round(catnipCost * 1.15);
     pps = pps + 1;
     document.getElementById("pps").innerHTML = pps.toFixed(1);
     document.getElementById("click").innerHTML = click.toFixed(1);
