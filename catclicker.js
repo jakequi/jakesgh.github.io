@@ -204,7 +204,7 @@ function addFurball() {
     document.getElementById("pps").innerHTML = pps.toFixed(1);
     document.getElementById("click").innerHTML = click.toFixed(1);
     document.getElementById("furballButton").value =
-      "Furball (" + furballCost + ") [" + furballCount + "]";
+      "Furball 🧶 (" + furballCost + ") [" + furballCount + "]";
   }
 }
 
