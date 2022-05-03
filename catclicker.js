@@ -308,6 +308,18 @@ function addBastet() {
   }
 }
 
+function debug() {
+  furballCount = 10;
+  litterboxCount = 10;
+  document.getElementById("litterboxButton").classList.remove("locked");
+  document.getElementById("litterboxButton").classList.add("addscorebutton");
+  catnipCount = 10;
+  document.getElementById("catnipButton").classList.remove("locked");
+  document.getElementById("catnipButton").classList.add("addscorebutton");
+  click = 999;
+  addClick(0);
+}
+
 //stop click counter after game end
 // if (secs < 0) {
 //   document.getElementById("kitty").onclick = null;
