@@ -135,7 +135,7 @@ function addClick(amount) {
 
     if (litterboxCount >= 10) {
       if (catnipCount == 0) {
-        document.getElementById("catnipButton").value = "Catnip 🥫 (100) [0]";
+        document.getElementById("catnipButton").value = "Catnip 🥫 (150) [0]";
       }
       catnipUnlocked = true;
       document.getElementById("catnipButton").classList.add("addscorebutton");
