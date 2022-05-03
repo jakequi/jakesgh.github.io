@@ -240,7 +240,7 @@ function addCatnip() {
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
     catnipCost = Math.round(catnipCost * 1.12);
-    pps = pps + 1;
+    pps = pps + 2.75;
     document.getElementById("pps").innerHTML = pps.toFixed(1);
     document.getElementById("click").innerHTML = click.toFixed(1);
     document.getElementById("catnipButton").value =
