@@ -53,9 +53,11 @@ input:disabled {
 /* image style */
 
 img {
-  padding: 30px;
+  padding: 40px;
   width: 190px;
   height: 150px;
+  margin: auto;
+  text-align: center;
 }
 
 .imgactive:hover {

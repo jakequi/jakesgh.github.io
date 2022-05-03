@@ -112,17 +112,57 @@ function addClick(amount) {
     document
       .getElementById("furballButton")
       .setAttribute("disabled", "disabled");
-  } else document.getElementById("furballButton").removeAttribute("disabled");
-  if ((furballCount >= 10) & (catnipCount == 0)) {
-    catnipUnlocked = true;
-    document.getElementById("catnipButton").value = "Catnip (50) [0]";
-    document.getElementById("catnipButton").classList.add("addscorebutton");
-    document.getElementById("catnipButton").classList.remove("locked");
-    if (click < catnipCost) {
+  } else {
+    document.getElementById("furballButton").removeAttribute("disabled");
+  }
+
+  if (furballCount >= 10) {
+    if (litterboxCount == 0) {
+      document.getElementById("litterboxButton").value = "Litterbox (50) [0]";
+    }
+    litterboxUnlocked = true;
+    document.getElementById("litterboxButton").classList.add("addscorebutton");
+    document.getElementById("litterboxButton").classList.remove("locked");
+
+    if (click < litterboxCost) {
       document
-        .getElementById("catnipButton")
+        .getElementById("litterboxButton")
         .setAttribute("disabled", "disabled");
-    } else document.getElementById("catnipButton").removeAttribute("disabled");
+    } else {
+      document.getElementById("litterboxButton").removeAttribute("disabled");
+    }
+
+    if (litterboxCount >= 10) {
+      if (catnipCount == 0) {
+        document.getElementById("catnipButton").value = "Catnip (100) [0]";
+      }
+      catnipUnlocked = true;
+      document.getElementById("catnipButton").classList.add("addscorebutton");
+      document.getElementById("catnipButton").classList.remove("locked");
+      if (click < catnipCost) {
+        document
+          .getElementById("catnipButton")
+          .setAttribute("disabled", "disabled");
+      } else {
+        document.getElementById("catnipButton").removeAttribute("disabled");
+      }
+
+      if (catnipCount >= 10) {
+        if (bastetCount == 0) {
+          document.getElementById("bastetButton").value = "Bastet (500) [0]";
+        }
+        bastetUnlocked = true;
+        document.getElementById("bastetButton").classList.add("addscorebutton");
+        document.getElementById("bastetButton").classList.remove("locked");
+        if (click < bastetCost) {
+          document
+            .getElementById("bastetButton")
+            .setAttribute("disabled", "disabled");
+        } else {
+          document.getElementById("bastetButton").removeAttribute("disabled");
+        }
+      }
+    }
   }
 }
 
@@ -163,7 +203,27 @@ function addFurball() {
   }
 }
 
-var catnipCost = 50;
+var litterboxCost = 50;
+var litterboxCount = 0;
+
+function addLitterbox() {
+  if ((click >= litterboxCost) & litterboxUnlocked) {
+    click = click - litterboxCost;
+    litterboxCount = litterboxCount + 1;
+    setInterval(function () {
+      addClick(0.015);
+      document.getElementById("click").innerHTML = click.toFixed(1);
+    }, 10);
+    litterboxCost = Math.round(litterboxCost * 1.12);
+    pps = pps + 1;
+    document.getElementById("pps").innerHTML = pps.toFixed(1);
+    document.getElementById("click").innerHTML = click.toFixed(1);
+    document.getElementById("litterboxButton").value =
+      "Litterbox (" + litterboxCost + ") [" + litterboxCount + "]";
+  }
+}
+
+var catnipCost = 100;
 var catnipCount = 0;
 
 function addCatnip() {
@@ -171,15 +231,35 @@ function addCatnip() {
     click = click - catnipCost;
     catnipCount = catnipCount + 1;
     setInterval(function () {
-      addClick(0.01);
+      addClick(0.035);
       document.getElementById("click").innerHTML = click.toFixed(1);
     }, 10);
-    catnipCost = Math.round(catnipCost * 1.15);
+    catnipCost = Math.round(catnipCost * 1.12);
     pps = pps + 1;
     document.getElementById("pps").innerHTML = pps.toFixed(1);
     document.getElementById("click").innerHTML = click.toFixed(1);
     document.getElementById("catnipButton").value =
       "Catnip (" + catnipCost + ") [" + catnipCount + "]";
+  }
+}
+
+var bastetCost = 500;
+var bastetCount = 0;
+
+function addBastet() {
+  if ((click >= bastetCost) & bastetUnlocked) {
+    click = click - bastetCost;
+    bastetCount = bastetCount + 1;
+    setInterval(function () {
+      addClick(1);
+      document.getElementById("click").innerHTML = click.toFixed(1);
+    }, 10);
+    bastetCost = Math.round(bastetCost * 1.12);
+    pps = pps + 100;
+    document.getElementById("pps").innerHTML = pps.toFixed(1);
+    document.getElementById("click").innerHTML = click.toFixed(1);
+    document.getElementById("bastetButton").value =
+      "Bastet (" + bastetCost + ") [" + bastetCount + "]";
   }
 }
 
